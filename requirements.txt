@@ -27,4 +27,9 @@ youtube-search-python==1.4.6
 pyromod
 yt_dlp
 tswift
-
+#for compressor
+python-decouple
+telethon
+ethon
+telethon-tgcrypto
+cryptg
