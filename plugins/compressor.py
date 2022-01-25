@@ -5,7 +5,7 @@ import time
 import subprocess
 import re
 from telethon import events, Button
-from info import JPG
+from info import COMMAND_HAND_LER, JPG
 from datetime import datetime as dt
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
