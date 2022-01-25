@@ -27,7 +27,7 @@ async def allowed(_, __, message):
     return False
 
 @Client.on_message(filters.command('compress') & filters.user(ADMINS))
-async def gen_link_s(bot, message):
+async def compin(event):
     replied = message.reply_to_message
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
