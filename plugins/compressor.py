@@ -16,13 +16,6 @@ from telethon.tl.types import DocumentAttributeVideo
 
 RPLAYMOVIE = "https://t.me/renishrplay"
 
-@Client.on(events.NewMessage(incoming=True, pattern="/compress"))
-async def start(event):
-    await event.reply(f"Send me any file to begin.",
-                      buttons=[
-                              [Button.inline("DEV", data="{RPLAYMOVIE}")]
-                              ])
-                              
 @Client.on(events.NewMessage(incoming=True,func=lambda e: e.is_private))
 async def compin(event):
     if event.is_private:
