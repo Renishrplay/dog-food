@@ -19,6 +19,7 @@ from plugins.helper_functions.cust_p_filters import f_onw_fliter
 # -- Constants -- #
 RPLAYMOVIE = "https://t.me/renishrplay"
 COMPRESSOR = "wait for it"
+ADMINS = "1927155351" 
 # -- Constants End -- #
 
 @Client.on_message(filters.command('compress') & filters.user(ADMINS))
