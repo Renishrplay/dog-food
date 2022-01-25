@@ -26,8 +26,6 @@ ADMINS = "1927155351"
 async def compin(event):
     replied = message.reply_to_message
     if not replied:
-        return await message.reply('Reply to a message to get a shareable link.')
-    if event.is_private:
         media = event.media
         if media:
             video = event.file.mime_type
