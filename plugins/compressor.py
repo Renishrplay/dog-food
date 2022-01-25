@@ -22,7 +22,7 @@ COMPRESSOR = "wait for it"
 ADMINS = "1927155351" 
 # -- Constants End -- #
 
-@Client.on_message(filters.command('compress') & filters.user(ADMINS))
+@Client.on_event(filters.command('compress') & filters.user(ADMINS))
 async def compin(event):
     replied = message.reply_to_message
     if not replied:
