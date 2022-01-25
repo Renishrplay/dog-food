@@ -14,7 +14,10 @@ from RPLAY.utils import ffmpeg_progress
 from telethon.errors.rpcerrorlist import MessageNotModifiedError
 from telethon.tl.types import DocumentAttributeVideo
 
+# -- Constants -- #
 RPLAYMOVIE = "https://t.me/renishrplay"
+COMPRESSOR = "wait for it"
+# -- Constants End -- #
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
