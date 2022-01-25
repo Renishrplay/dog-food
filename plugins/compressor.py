@@ -38,7 +38,7 @@ async def compin(event):
                             ])
 #-----------------------------------------------------------------------------------------
 
-@Client.on(events.callbackquery.CallbackQuery(data="compress"))
+@Client.on_message(filters.command.CallbackQuery(data="compress"))
 async def compresss(event):
     button = await event.get_message()
     msg = await button.get_reply_message()  
