@@ -16,15 +16,14 @@ from telethon.tl.types import DocumentAttributeVideo
 
 RPLAYMOVIE = "https://t.me/renishrplay"
 
-@Client.on(events.NewMessage(incoming=True,func=lambda e: e.is_private))
-async def compin(event):
-    await event.reply(f"Send me any file to begin.",
-                      buttons=[
-                              [Button.inline("DEV", data="{RPLAYMOVIE}")]
-                              ])
-                              
-@Client.on(events.NewMessage(incoming=True,func=lambda e: e.is_private))
-async def compin(event):
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+@Client.on_message(filters.command('compress') & filters.user(ADMINS))
+async def gen_link_s(bot, message):
+    replied = message.reply_to_message
+    if not replied:
+        return await message.reply('Reply to a message to get a shareable link.')
     if event.is_private:
         media = event.media
         if media:
