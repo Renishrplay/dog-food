@@ -19,16 +19,6 @@ RPLAYMOVIE = "https://t.me/renishrplay"
 COMPRESSOR = "wait for it"
 # -- Constants End -- #
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-async def allowed(_, __, message):
-    if COMPRESSOR:
-        return True
-    if message.from_user and message.from_user.id in ADMINS:
-        return True
-    return False
-
 @Client.on_message(filters.command('compress') & filters.user(ADMINS))
 async def compin(event):
     replied = message.reply_to_message
