@@ -326,8 +326,8 @@ async def delete(bot, message):
             })
             if result.deleted_count:
                 await msg.edit('File is successfully deleted from database')
-            else:           
-            await msg.edit('File not found in database')
+            else:
+                await msg.edit('File not found in database')
 
 
 @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
