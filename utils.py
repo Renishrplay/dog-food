@@ -38,6 +38,7 @@ class temp(object):
     MELCOW = {}
     U_NAME = None
     B_NAME = None
+    SETTINGS = {}
 
 async def is_subscribed(bot, query):
     try:
