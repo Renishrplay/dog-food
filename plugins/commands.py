@@ -4,14 +4,20 @@ import random
 import asyncio
 from Script import script
 from pyrogram import Client, filters
+from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from database.ia_filterdb import Media, get_file_details
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, PROTECT_CONTENT
-from utils import get_size, is_subscribed, temp
-
+from utils import get_size, is_subscribed, save_group_settings, get_settings, temp
+from database.connections_mdb import active_connection
+import re
+import json
+import base64
 logger = logging.getLogger(__name__)
+
+BATCH_FILES = {}
 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
