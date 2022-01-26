@@ -8,8 +8,8 @@ from database.ia_filterdb import save_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from utils import temp
 import re
-
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
 
