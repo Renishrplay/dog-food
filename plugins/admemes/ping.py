@@ -8,9 +8,9 @@ from info import COMMAND_HAND_LER
 from plugins.helper_functions.cust_p_filters import f_onw_fliter
 
 # -- Constants -- #
-ALIVE = "dad"
-HELP = "nothing."
-REPO = "give.."
+ALIVE = "HEY 👋 I ADDED A FILE STORE COMMAND SO WHY YOU CLICK THAT YOU DON'T KNOW U AM ALIVE"
+HELP = "click /start & get help"
+REPO = "join this channel https://t.me/open_sorce"
 # -- Constants End -- #
 
 
