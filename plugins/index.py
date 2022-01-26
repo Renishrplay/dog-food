@@ -3,10 +3,12 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
-from info import ADMINS, LOG_CHANNEL
+from info import ADMINS, INDEX_REQ_CHANNEL, LOG_CHANNEL
 from database.ia_filterdb import save_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from utils import temp
+import re
+
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
