@@ -8,7 +8,8 @@ from info import COMMAND_HAND_LER
 from plugins.helper_functions.cust_p_filters import f_onw_fliter
 
 # -- Constants -- #
-ALIVE = "HEY 👋 I ADDED A FILE STORE COMMAND SO WHY YOU CLICK THAT YOU DON'T KNOW U AM ALIVE"
+ALIVE = "HEY 👋 I AM ALIVE , That's you know 
+** NEW FECHNER IS FILE STORE **"
 HELP = "click /start & get help"
 REPO = "join this channel https://t.me/open_sorce"
 # -- Constants End -- #
