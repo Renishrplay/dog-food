@@ -9,9 +9,9 @@ class script(object):
 ✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵
 ╔════❰ ꪖ᥇ꪮꪊ𝓽 ꪑ𝘴ᧁ ❱═❍⊱❁۪۪
 ║╭━━━━━━━━━━━━━━━➣ 
-║┣⪼ 𝙈𝙔 𝙉𝘼𝙈𝙀 - <a href="https://t.me/Rplaymovie_god_bot'>RPLAY ™ MOVIE GOD </a>
+║┣⪼ 𝙈𝙔 𝙉𝘼𝙈𝙀 - [RPLAY ™ MOVIE GOD](https://t.me/Rplaymovie_god_bot)
 ║┣⪼ MIRROR GROUP https://t.me/rplay_mirror
-║┣⪼ DEVELOPER - <a href="https://t.me/renishrplay"> RPLAYRENISH </a>
+║┣⪼ DEVELOPER - [RPLAYRENISH](https://t.me/renishrplay)
 ║┣⪼ 𝓛𝓲𝓫𝓻𝓪𝓻𝓻𝔂 - 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
 ║┣⪼ 𝓛𝓪𝓷𝓰𝓾𝓪𝓰𝓮 - 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
 ║┣⪼ 𝓓𝓪𝓽𝓪 𝓑𝓪𝓼𝓮 - 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
@@ -28,9 +28,8 @@ class script(object):
 Note:- Give a user details
 
 •/whois :-give a user full details"""
-    ALIVE_TXT ="""<b>ALIVE MODULE</b>
-• /alive - check me alive or dead🤧
-Just for a rasam😂"""
+    ALIVE_TXT ="""<b>STORE YOUR FILE</b>
+• /link /link - 🤧 TO STORE FILE 😂"""
     CORONA_TXT ="""<b>Here is the help for the coron information module</b>
 ➡️ /covid <code>(countryname)</code> <b>you can find a corona information of every country</b>
 
