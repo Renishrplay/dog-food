@@ -30,7 +30,8 @@ Note:- Give a user details
 
 •/whois :-give a user full details"""
     ALIVE_TXT ="""<b>STORE YOUR FILE</b>
-• /link /link - 🤧 TO STORE FILE 😂"""
+• /link /plink - 🤧 TO STORE FILE 😂
+. /pbatch /batch - 🚀 beach save 🚀"""
     CORONA_TXT ="""<b>Here is the help for the coron information module</b>
 ➡️ /covid <code>(countryname)</code> <b>you can find a corona information of every country</b>
 
