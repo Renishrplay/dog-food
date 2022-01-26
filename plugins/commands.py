@@ -299,8 +299,35 @@ async def delete(bot, message):
     else:
         await msg.edit('This is not supported file format')
         return
+    
+     file_id, file_ref = unpack_new_file_id(media.file_id)
 
     result = await Media.collection.delete_one({
+        '_id': file_id,
+    })
+    if result.deleted_count:
+        await msg.edit('File is successfully deleted from database')
+    else:
+        file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
+        result = await Media.collection.delete_many({
+            'file_name': file_name,
+            'file_size': media.file_size,
+            'mime_type': media.mime_type
+            })
+        if result.deleted_count:
+            await msg.edit('File is successfully deleted from database')
+        else:
+            # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
+            # have original file name.
+            result = await Media.collection.delete_many({
+                'file_name': media.file_name,
+                'file_size': media.file_size,
+                'mime_type': media.mime_type
+            })
+            if result.deleted_count:
+                await msg.edit('File is successfully deleted from database')
+            else:
+              result = await Media.collection.delete_one({
         'file_name': media.file_name,
         'file_size': media.file_size,
         'mime_type': media.mime_type
