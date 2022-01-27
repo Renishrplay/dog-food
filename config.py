@@ -29,6 +29,7 @@ class Config(object):
     # Your database name from mongoDB
 
     DATABASE_NAME = str(os.environ.get("DATABASE_NAME", "rplay_mirror"))
+    SESSION_NAME = "rplay_mirror"
 
     # ID of users that can use the bot commands
 
@@ -37,6 +38,7 @@ class Config(object):
     # To save user details (Usefull for getting userinfo and total user counts)
 
     # May reduce filter capacity :(
+    MAX_INLINE_RESULTS = int(os.environ.get("MAX_INLINE_RESULTS", 550))
 
     # Give yes or no
 
