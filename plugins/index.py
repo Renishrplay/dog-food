@@ -144,13 +144,39 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
     async with lock:
         try:
             total=lst_msg_id + 1
-            current = temp.CURRENT
-            temp.CANCEL = False
-            async for message in bot.iter_messages(chat, lst_msg_id, bot, iter_messages, temp.CURRENT):
+            current=temp.CURRENT
+            temp.CANCEL=False
+            while current < total:
                 if temp.CANCEL:
-                    await msg.edit(f"Successfully Cancelled!!\n\nSaved <code>{total_files}</code> files to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>")
+                    await msg.edit("Succesfully Cancelled")
                     break
-                current += 1
+                try:
+                    message = await bot.get_messages(chat_id=chat, message_ids=current, replies=0)
+                except FloodWait as e:
+                    await asyncio.sleep(e.x)
+                    message = await bot.get_messages(
+                        chat,
+                        current,
+                        replies=0
+                        )
+                except Exception as e:
+                    print(e)
+                try:
+                    for file_type in ("document", "video", "audio"):
+                        media = getattr(message, file_type, None)
+                        if media is not None:
+                            break
+                        else:
+                            continue
+                    media.file_type = file_type
+                    media.caption = message.caption
+                    await save_file(media)
+                    total_files += 1
+                except TypeError:
+                    pass
+                except Exception as e:
+                    print(e)
+                current+=1
                 if current % 20 == 0:
                     can = [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
                     reply = InlineKeyboardMarkup(can)
