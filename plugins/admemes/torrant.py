@@ -55,7 +55,7 @@ DEFAULT_SEARCH_MARKUP = [
 async def inline_handlers(_, inline: InlineQuery):
     search_ts = inline.query
     answers = []
-    if search_ts == "":
+    if search_ts == "torrant":
         answers.append(
             InlineQueryResultArticle(
                 title="Search Something ...",
