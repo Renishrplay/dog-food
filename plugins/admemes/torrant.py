@@ -117,10 +117,10 @@ async def inline_handlers(_, inline: InlineQuery):
                                              f"**Magnet:**\n`{torrentList[i]['Magnet']}`\n\nPowered By @AHToolsBot",
                                 parse_mode="Markdown"
                             ),
-                            reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!pb ")]])
-                        )
-                    )
+                            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]]),
+                            thumb_url=torrentList[i]["Poster"]
+                         )
+                      )
     elif search_ts.startswith("!yts"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
@@ -220,9 +220,8 @@ async def inline_handlers(_, inline: InlineQuery):
                                              f"**Magnet:** \n`{torrentList[i]['Magnet']}`\n\nPowered By @AHToolsBot",
                                 parse_mode="Markdown"
                             ),
-                            reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]]
-                            )
+                            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]]),
+                            thumb_url=torrentList[i]["Poster"]
                         )
                     )
     elif search_ts.startswith("!1337x"):
@@ -271,11 +270,11 @@ async def inline_handlers(_, inline: InlineQuery):
                                              f"**Magnet:** \n`{torrentList[i]['Magnet']}`\n\nPowered By @AHToolsBot",
                                 parse_mode="Markdown"
                             ),
-                            reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]]
-                            )
+                            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]]),
+                            thumb_url=torrentList[i]["Poster"]
                         )
                     )
+
     try:
         await inline.answer(
             results=answers,
