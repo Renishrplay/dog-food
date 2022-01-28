@@ -6,13 +6,7 @@ from pyrogram.errors import QueryIdInvalid, FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, InlineQuery, InlineQueryResultArticle, \
     InputTextMessageContent
 
-from configs import Config
-from tool import SearchYTS, SearchAnime, Search1337x, SearchPirateBay
-# (c) @AbirHasan2005
-# Scrappers
-
 import aiohttp
-from configs import Config
 from requests.utils import requote_uri
 
 API_1337x = "https://api.abirhasan.wtf/1337x?query={}&limit={}"
@@ -52,29 +46,12 @@ DEFAULT_SEARCH_MARKUP = [
                      InlineKeyboardButton("Go Inline", switch_inline_query="!yts ")],
                     [InlineKeyboardButton("Search ThePirateBay", switch_inline_query_current_chat="!pb "),
                      InlineKeyboardButton("Go Inline", switch_inline_query="!pb ")],
-                    [InlineKeyboardButton("Search 1337x", switch_inline_query_current_chat=""),
-                     InlineKeyboardButton("Go Inline", switch_inline_query="")],
+                    [InlineKeyboardButton("Search 1337x", switch_inline_query_current_chat="1337x"),
+                     InlineKeyboardButton("Go Inline", switch_inline_query="1337x")],
                     [InlineKeyboardButton("Search Anime", switch_inline_query_current_chat="!a "),
                      InlineKeyboardButton("GO Inline", switch_inline_query_current_chat="!a ")],
-                    [InlineKeyboardButton("Developer: @AbirHasan2005", url="https://t.me/AbirHasan2005")]
+                    [InlineKeyboardButton("Developer: @AbirHasan2005", url="t.me/renishrplay")]
                 ]
-
-
-@TorrentBot.on_message(filters.command("start"))
-async def start_handler(_, message: Message):
-    try:
-        await message.reply_text(
-            text="Hello, I am Torrent Search Bot!\n"
-                 "I can search Torrent Magnetic Links from Inline.\n\n"
-                 "Made by @AbirHasan2005",
-            disable_web_page_preview=True,
-            parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
-        )
-    except FloodWait as e:
-        print(f"[{Config.SESSION_NAME}] - Sleeping for {e.x}s")
-        await asyncio.sleep(e.x)
-        await start_handler(_, message)
 
 
 @TorrentBot.on_inline_query()
