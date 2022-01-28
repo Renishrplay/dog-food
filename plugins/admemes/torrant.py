@@ -222,7 +222,7 @@ async def inline_handlers(_, inline: InlineQuery):
                             )
                         )
                     )
-    elif search_ts.startswith("1337x"):
+    elif search_ts.startswith("!1337x"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
@@ -230,7 +230,7 @@ async def inline_handlers(_, inline: InlineQuery):
                     title="!a [text]",
                     description="Search For Torrents for Anime ...",
                     input_message_content=InputTextMessageContent(
-                        message_text="`!a [text]`\n\nSearch Anime Torrents from Inline!",
+                        message_text="`!1337x [text]`\n\nSearch Anime Torrents from Inline!",
                         parse_mode="Markdown"
                     ),
                     reply_markup=InlineKeyboardMarkup(
