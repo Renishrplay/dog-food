@@ -234,7 +234,7 @@ async def inline_handlers(_, inline: InlineQuery):
                           parse_mode="Markdown"
                        ),
                        reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="1337x")]])
+                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]])
                    )
                )
            else:
@@ -243,13 +243,13 @@ async def inline_handlers(_, inline: InlineQuery):
                       answers.append(
                         InlineQueryResultArticle(
                         title="No Torrents Found!",
-                        description=f"Can't find torrents for`{query}` !!",
+                        description=f"Can't find torrents for {query} !!",
                         input_message_content=InputTextMessageContent(
                           message_text=f"No Torrents Found For `{query}`",
                           parse_mode="Markdown"
                         ),
                       reply_markup=InlineKeyboardMarkup(
-                          [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x")]])
+                          [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x ")]])
                      )
                 )
             else:
@@ -269,7 +269,7 @@ async def inline_handlers(_, inline: InlineQuery):
                                 parse_mode="Markdown"
                             ),
                             reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x")]]
+                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]]
                             )
                         )
                     )
