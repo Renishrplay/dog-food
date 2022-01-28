@@ -15,7 +15,7 @@ MAX_INLINE_RESULTS = "555"
 SESSION_NAME = "rplay_mirror"
 
 TORRANT = " hi"
-@Client.on_message(filters.command("torrant", COMMAND_HAND_LER) & f_onw_fliter)
+@Client.on_message(filters.command("start", COMMAND_HAND_LER) & f_onw_fliter)
 async def check_alive(_, message):
     await message.reply_text(TORRANT)
 
@@ -42,7 +42,6 @@ async def SearchAnime(query: str):
         async with session.get(requote_uri(API_ANIME.format(query, Config.MAX_INLINE_RESULTS))) as res:
             return (await res.json())["results"] if ((await res.json()).get("results", None) is not None) else []
 
-TorrentBot = Client(session_name=Config.SESSION_NAME, api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 DEFAULT_SEARCH_MARKUP = [
                     [InlineKeyboardButton("Search YTS", switch_inline_query_current_chat="!yts "),
                      InlineKeyboardButton("Go Inline", switch_inline_query="!yts ")],
