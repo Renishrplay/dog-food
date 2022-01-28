@@ -14,10 +14,6 @@ API_ANIME = "https://api.abirhasan.wtf/anime?query={}&limit={}"
 MAX_INLINE_RESULTS = "555"
 SESSION_NAME = "rplay_mirror"
 
-TORRANT = " hi"
-@Client.on_message(filters.command("start", COMMAND_HAND_LER) & f_onw_fliter)
-async def check_alive(_, message):
-    await message.reply_text(TORRANT)
 
 async def Search1337x(query: str):
     async with aiohttp.ClientSession() as session:
