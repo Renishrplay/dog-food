@@ -357,7 +357,7 @@ async def delete_all_index(bot, message):
 async def inline_handlers(_, inline: InlineQuery):
     search_ts = inline.query
     answers = []
-    if search_ts == "":
+    if search_ts == "!1337x":
         answers.append(
             InlineQueryResultArticle(
                 title="Search Something ...",
