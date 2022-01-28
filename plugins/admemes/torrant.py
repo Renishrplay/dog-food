@@ -255,7 +255,7 @@ async def inline_handlers(_, inline: InlineQuery):
                           [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x ")]])
                      )
                 )
-           else:
+           except:
                for i in range(len(torrentList)):
                     answers.append(
                         InlineQueryResultArticle(
