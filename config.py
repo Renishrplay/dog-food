@@ -19,7 +19,8 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH", "")
 
     
-
+    MAX_INLINE_RESULTS = 555
+    SESSION_NAME = "rplay_mirror" 
     
 
     # Database URL from https://cloud.mongodb.com/
