@@ -1,5 +1,4 @@
-# (c) @AbirHasan2005 & Jigar Varma & Hemanta Pokharel & Akib Hridoy
-
+import os
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import QueryIdInvalid, FloodWait
@@ -223,14 +222,29 @@ async def inline_handlers(_, inline: InlineQuery):
                             )
                         )
                     )
-    else:
-        torrentList = await Search1337x(search_ts)
-        if not torrentList:
+    elif search_ts.startswith("!a"):
+        query = search_ts.split(" ", 1)[-1]
+        if (query == "") or (query == " "):
             answers.append(
                 InlineQueryResultArticle(
-                    title="No Torrents Found!",
-                    description=f"Can't find torrents for {search_ts} !!",
+                    title="!a [text]",
+                    description="Search For Torrents for Anime ...",
                     input_message_content=InputTextMessageContent(
+                        message_text="`!a [text]`\n\nSearch Anime Torrents from Inline!",
+                        parse_mode="Markdown"
+                    ),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]])
+                )
+            )
+        else:
+            torrentList = await Search1337x(search_ts)
+               if not torrentList:
+                  answers.append(
+                     InlineQueryResultArticle(
+                     title="No Torrents Found!",
+                      description=f"Can't find torrents for {search_ts} !!",
+                      input_message_content=InputTextMessageContent(
                         message_text=f"No Torrents Found For `{search_ts}`",
                         parse_mode="Markdown"
                     ),
