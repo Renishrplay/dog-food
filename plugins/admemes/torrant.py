@@ -230,30 +230,30 @@ async def inline_handlers(_, inline: InlineQuery):
                     title="!a [text]",
                     description="Search For Torrents for Anime ...",
                     input_message_content=InputTextMessageContent(
-                        message_text="`!1337x [text]`\n\nSearch Anime Torrents from Inline!",
-                        parse_mode="Markdown"
-                    ),
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="1337x")]])
+                          message_text="`!1337x [text]`\n\nSearch Anime Torrents from Inline!",
+                          parse_mode="Markdown"
+                       ),
+                       reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="1337x")]])
+                   )
+               )
+           else:
+                 torrentList = await Search1337x(query)
+                    if not torrentList:
+                      answers.append(
+                        InlineQueryResultArticle(
+                        title="No Torrents Found!",
+                        description=f"Can't find torrents for`{query}` !!",
+                        input_message_content=InputTextMessageContent(
+                          message_text=f"No Torrents Found For `{query}`",
+                          parse_mode="Markdown"
+                        ),
+                      reply_markup=InlineKeyboardMarkup(
+                          [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x")]])
+                     )
                 )
-            )
-        else:
-            torrentList = await Search1337x(query)
-               if not torrentList:
-                  answers.append(
-                     InlineQueryResultArticle(
-                     title="No Torrents Found!",
-                      description=f"Can't find torrents for`{query}` !!",
-                      input_message_content=InputTextMessageContent(
-                        message_text=f"No Torrents Found For `{query}`",
-                        parse_mode="Markdown"
-                    ),
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x")]])
-                )
-            )
-        else:
-            for i in range(len(torrentList)):
+          else:
+              for i in range(len(torrentList)):
                 answers.append(
                     InlineQueryResultArticle(
                         title=f"{torrentList[i]['Name']}",
@@ -273,7 +273,7 @@ async def inline_handlers(_, inline: InlineQuery):
                             parse_mode="Markdown"
                         ),
                         reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="")]]
+                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x")]]
                         ),
                         thumb_url=torrentList[i]['Poster']
                     )
