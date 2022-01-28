@@ -255,26 +255,6 @@ async def inline_handlers(_, inline: InlineQuery):
                           [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!a ")]])
                      )
                 )
-           else:
-               for i in range(len(torrentList)):
-                    answers.append(
-                        InlineQueryResultArticle(
-                            title=f"{torrentList[i]['Name']}",
-                            description=f"Seeders: {torrentList[i]['Seeder']}, Leechers: {torrentList[i]['Leecher']}\nSize: {torrentList[i]['Size']}",
-                            input_message_content=InputTextMessageContent(
-                                message_text=f"**Category:** `{torrentList[i]['Category']}`\n"
-                                             f"**Name:** `{torrentList[i]['Name']}`\n"
-                                             f"**Seeders:** `{torrentList[i]['Seeder']}`\n"
-                                             f"**Leechers:** `{torrentList[i]['Leecher']}`\n"
-                                             f"**Size:** `{torrentList[i]['Size']}`\n"
-                                             f"**Upload Date:** `{torrentList[i]['Date']}`\n\n"
-                                             f"**Magnet:** \n`{torrentList[i]['Magnet']}`\n\nPowered By @AHToolsBot",
-                                parse_mode="Markdown"
-                            ),
-                            reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]]
-                            )
-                        )
     try:
         await inline.answer(
             results=answers,
