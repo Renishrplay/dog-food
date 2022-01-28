@@ -1,10 +1,9 @@
-import os
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import QueryIdInvalid, FloodWait
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, InlineQuery, InlineQueryResultArticle, \
     InputTextMessageContent
-
+from info import COMMAND_HAND_LER
 import aiohttp
 from requests.utils import requote_uri
 
@@ -15,6 +14,10 @@ API_ANIME = "https://api.abirhasan.wtf/anime?query={}&limit={}"
 MAX_INLINE_RESULTS = int(os.environ.get("MAX_INLINE_RESULTS", 50))
 SESSION_NAME = "rplay_mirror"
 
+TORRANT = " hi"
+@Client.on_message(filters.command("torrant", COMMAND_HAND_LER) & f_onw_fliter)
+async def check_alive(_, message):
+    await message.reply_text(TORRANT)
 
 async def Search1337x(query: str):
     async with aiohttp.ClientSession() as session:
