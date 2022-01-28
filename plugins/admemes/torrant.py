@@ -174,23 +174,23 @@ async def inline_handlers(_, inline: InlineQuery):
                             thumb_url=torrentList[i]["Poster"]
                         )
                     )
-    elif search_ts.startswith("!a"):
+    elif search_ts.startswith("!1337x"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
                 InlineQueryResultArticle(
-                    title="!a [text]",
+                    title="!1337x [text]",
                     description="Search For Torrents for Anime ...",
                     input_message_content=InputTextMessageContent(
-                        message_text="`!a [text]`\n\nSearch Anime Torrents from Inline!",
+                        message_text="`!1337x [text]`\n\nSearch Anime Torrents from Inline!",
                         parse_mode="Markdown"
                     ),
                     reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]])
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]])
                 )
             )
         else:
-            torrentList = await SearchAnime(query)
+            torrentList = await Search1337x(query)
             if not torrentList:
                 answers.append(
                     InlineQueryResultArticle(
@@ -201,7 +201,7 @@ async def inline_handlers(_, inline: InlineQuery):
                             parse_mode="Markdown"
                         ),
                         reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!a ")]])
+                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x ")]])
                     )
                 )
             else:
@@ -221,11 +221,11 @@ async def inline_handlers(_, inline: InlineQuery):
                                 parse_mode="Markdown"
                             ),
                             reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]]
+                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]]
                             )
                         )
                     )
-    elif search_ts.startswith("!1337x"):
+    elif search_ts.startswith("!a"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
@@ -233,11 +233,11 @@ async def inline_handlers(_, inline: InlineQuery):
                     title="!a [text]",
                     description="Search For Torrents for Anime ...",
                     input_message_content=InputTextMessageContent(
-                          message_text="`!1337x [text]`\n\nSearch Anime Torrents from Inline!",
+                          message_text="`!a [text]`\n\nSearch Anime Torrents from Inline!",
                           parse_mode="Markdown"
                        ),
                        reply_markup=InlineKeyboardMarkup(
-                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]])
+                            [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]])
                    )
                )
            else:
@@ -252,10 +252,10 @@ async def inline_handlers(_, inline: InlineQuery):
                           parse_mode="Markdown"
                         ),
                       reply_markup=InlineKeyboardMarkup(
-                          [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!1337x ")]])
+                          [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!a ")]])
                      )
                 )
-           except:
+           else:
                for i in range(len(torrentList)):
                     answers.append(
                         InlineQueryResultArticle(
@@ -272,7 +272,7 @@ async def inline_handlers(_, inline: InlineQuery):
                                 parse_mode="Markdown"
                             ),
                             reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!1337x ")]]
+                                [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]]
                             )
                         )
     try:
