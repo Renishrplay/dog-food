@@ -54,7 +54,7 @@ DEFAULT_SEARCH_MARKUP = [
                 ]
 
 
-@TorrentBot.on_inline_query()
+@Client.on_inline_query()
 async def inline_handlers(_, inline: InlineQuery):
     search_ts = inline.query
     answers = []
@@ -283,6 +283,3 @@ async def inline_handlers(_, inline: InlineQuery):
         except QueryIdInvalid:
             print(f"[{Config.SESSION_NAME}] - Failed to Answer Error - {inline.from_user.first_name} - Sleeping for 5s")
             await asyncio.sleep(5)
-
-
-TorrentBot.run()
