@@ -19,7 +19,7 @@ API_1337x = "https://api.abirhasan.wtf/1337x?query={}&limit={}"
 API_YTS = "https://api.abirhasan.wtf/yts?query={}&limit={}"
 API_PIRATEBAY = "https://api.abirhasan.wtf/piratebay?query={}&limit={}"
 API_ANIME = "https://api.abirhasan.wtf/anime?query={}&limit={}"
-
+MAX_INLINE_RESULTS = int(os.environ.get("MAX_INLINE_RESULTS", 50))
 
 async def Search1337x(query: str):
     async with aiohttp.ClientSession() as session:
