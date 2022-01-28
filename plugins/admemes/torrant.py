@@ -222,7 +222,7 @@ async def inline_handlers(_, inline: InlineQuery):
                             )
                         )
                     )
-    elif search_ts.startswith("!a"):
+    elif search_ts.startswith("1337x"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
@@ -234,11 +234,11 @@ async def inline_handlers(_, inline: InlineQuery):
                         parse_mode="Markdown"
                     ),
                     reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!a ")]])
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="1337x")]])
                 )
             )
         else:
-            torrentList = await Search1337x(search_ts)
+            torrentList = await Search1337x(query)
                if not torrentList:
                   answers.append(
                      InlineQueryResultArticle(
