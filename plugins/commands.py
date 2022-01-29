@@ -21,7 +21,7 @@ STICKERS = (
            "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ",
     )
 
-@Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("r") & filters.incoming & ~filters.edited)
 async def start(client, message):
             await message.reply_sticker(
             sticker=random.choice(STICKERS)
