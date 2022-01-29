@@ -43,7 +43,7 @@ async def answer(bot, query):
     """Show search results for given inline query"""
     
     if not await inline_users(query):
-        await  search_ts.startswith("!yts"):
+        elif  search_ts.startswith("!yts"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
