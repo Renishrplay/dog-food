@@ -80,6 +80,24 @@ async def gen_link_batch(bot, message):
         return await sts.edit(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}")
 
     FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
+    if diff <= 200:
+        msgs = await bot.get_messages(f_chat_id, list(range(f_msg_id, l_msg_id+1)))
+        msgs_list += msgs
+    else:
+        c_msg = f_msg_id
+        while True:
+            new_diff = l_msg_id - c_msg
+            if new_diff > 200:
+                new_diff = 200
+            elif new_diff <= 0:
+                break
+            msgs = await bot.get_messages(f_chat_id, list(range(c_msg, c_msg+new_diff)))
+            msgs_list += msgs
+            try:
+                await sts.edit(FRMT.format(total=diff, current=(c_msg - f_msg_id), rem=(l_msg_id - c_msg), sts="Fetching Messages"))
+            except:
+                pass
+            c_msg += new_diff
 
     outlist = []
 
