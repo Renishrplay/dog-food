@@ -22,7 +22,7 @@ STICKERS = (
     )
 
 @Client.on_message(filters.command("start", no_args=True, only_pm=True)
-async def start_command(message):
+async def start(client, message):
     await message.reply_sticker(random.choice(STICKERS))
     await get_start_func(message)
 
