@@ -20,7 +20,6 @@ BATCH_FILES = {}
 STICKERS = "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ" 
 
 @Client.on_message(filters.command("start") 
-async def start_command(client, message):
     await message.reply_sticker(random.choice(STICKERS))
     await get_start_func(message)
 
