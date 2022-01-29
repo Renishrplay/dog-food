@@ -1,12 +1,10 @@
 import requests
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
 from database.ia_filterdb import get_search_results
-from database.ia_filterdb import get_search_results as db
+from database.ia_filterdb import get_search_results as approved_users
 from utils import is_subscribed, get_size, temp
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from pyrogram import Client, filters
-
-approved_users = db.approve
 
 
 async def is_register_admin(chat, user):
