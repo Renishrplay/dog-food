@@ -27,8 +27,8 @@ async def is_register_admin(chat, user):
     return False
 
 
-@Client.on(events.NewMessage(pattern="^/torrent (.*)"))
-async def _(event):
+@Client.on_message(filters.command("torrent"))
+async def reply_info(client, message):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
         iid = ch["id"]
