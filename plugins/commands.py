@@ -23,6 +23,12 @@ STICKERS = (
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
+            await message.reply_sticker(
+            photo=random.choice(STICKERS)
+         )
+
+@Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
+async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
@@ -55,7 +61,7 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
-            photo=random.choice(PICS), STICKERS,
+            photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
@@ -98,7 +104,7 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
-            photo=random.choice(PICS), STICKERS,
+            photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
