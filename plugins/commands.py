@@ -17,7 +17,9 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
-STICKERS = "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ" 
+STICKERS = (
+           "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ",
+    )
 
 @Client.on_message(filters.command("start", no_args=True, only_pm=True)
 async def start_command(message):
