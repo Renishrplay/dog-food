@@ -43,8 +43,20 @@ async def inline(bot, query):
           else:
                await results00(bot, query)
 async def inlineX1(bot, update):
-          answers = []
-    
+          results = []
+      if not torrentList:
+                answers.append(
+                    InlineQueryResultArticle(
+                        title="No Torrents Found!",
+                        description=f"Can't find YTS torrents for {query} !!",
+                        input_message_content=InputTextMessageContent(
+                            message_text=f"No YTS Torrents Found For `{query}`",
+                            parse_mode="Markdown"
+                        ),
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!yts ")]])
+                    )
+                )
     if not await inline_users(query):
         await query.answer(results=[],
                            cache_time=0,
