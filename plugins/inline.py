@@ -8,6 +8,16 @@ from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
+class Button(object):
+        BUTTONS01 = InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="📁 YTS", callback_data='00'),
+                                            InlineKeyboardButton(text="🔍 ꜱᴇᴀʀᴄʜ", switch_inline_query_current_chat="!1 ") ],
+                                          [ InlineKeyboardButton(text="📁 Anime", callback_data='00'),
+                                            InlineKeyboardButton(text="🔍 ꜱᴇᴀʀᴄʜ", switch_inline_query_current_chat="!2 ") ],
+                                          [ InlineKeyboardButton(text="📁 1337x", callback_data='00'),
+                                            InlineKeyboardButton(text="🔍 ꜱᴇᴀʀᴄʜ", switch_inline_query_current_chat="!3 " ) ],
+                                          [ InlineKeyboardButton(text="📁 ThePirateBay", callback_data='00'),
+                                            InlineKeyboardButton(text="🔍 ꜱᴇᴀʀᴄʜ", switch_inline_query_current_chat="!4 ") ],
+                                          [ InlineKeyboardButton(text="❌", callback_data="X0") ] ] )
 
 async def inline_users(query: InlineQuery):
     if AUTH_USERS and query.from_user and query.from_user.id in AUTH_USERS:
