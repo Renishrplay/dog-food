@@ -79,6 +79,11 @@ async def gen_link_batch(bot, message):
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
         return await sts.edit(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}")
 
+    msgs_list = []
+    c_msg = f_msg_id
+    
+    diff = l_msg_id - f_msg_id
+    
     FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
     if diff <= 200:
         msgs = await bot.get_messages(f_chat_id, list(range(f_msg_id, l_msg_id+1)))
