@@ -17,6 +17,12 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
+STICKERS = "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ" 
+
+@Client.on_message(filters.command("start") 
+async def start(client, message):
+    await message.reply_sticker(random.choice(STICKERS))
+    await get_start_func(message)
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
