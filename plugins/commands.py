@@ -21,7 +21,7 @@ STICKERS = (
            "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ",
     )
 
-@Client.on_message(filters.command("start", no_args=True, only_pm=True)
+@Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     await message.reply_sticker(random.choice(STICKERS))
     await get_start_func(message)
