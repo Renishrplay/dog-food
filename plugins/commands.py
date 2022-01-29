@@ -24,7 +24,7 @@ STICKERS = (
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
             await message.reply_sticker(
-            photo=random.choice(STICKERS)
+            sticker=random.choice(STICKERS)
          )
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
