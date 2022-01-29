@@ -37,13 +37,7 @@ async def inline_handlers(_, inline: InlineQuery):
                 ),
                 reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
             )
-        )
-@Client.on_inline_query()
-async def answer(bot, query):
-    """Show search results for given inline query"""
-    
-    
-    if  search_ts.startswith("!yts"):
+     elif search_ts.startswith("!yts"):
         query = search_ts.split(" ", 1)[-1]
         if (query == "") or (query == " "):
             answers.append(
