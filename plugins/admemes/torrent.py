@@ -1,10 +1,9 @@
 import requests
-from telethon import *
-from telethon import events
-from telethon.tl import functions, types
-from telethon.tl.types import *
-
-from Shadow.services.mongo import mongodb as db
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
+from database.ia_filterdb import get_search_results
+from database.ia_filterdb import get_search_results
+from utils import is_subscribed, get_size, temp
+from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from pyrogram import Client, filters
 
 approved_users = db.approve
