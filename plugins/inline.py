@@ -73,11 +73,6 @@ async def answer(bot, query):
                             [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!yts ")]])
                     )
                 )
-        else:
-              query.answer(results=[],
-                           cache_time=0,
-                           switch_pm_text='okDa',
-                           switch_pm_parameter="hehe")
         return
 
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
