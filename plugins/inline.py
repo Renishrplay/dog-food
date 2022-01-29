@@ -22,12 +22,59 @@ async def inline_users(query: InlineQuery):
         return True
     return False
 
+
+async def inline_handlers(_, inline: InlineQuery):
+    search_ts = inline.query
+    answers = []
+    if search_ts == "":
+        answers.append(
+            InlineQueryResultArticle(
+                title="Search Something ...",
+                description="Search For Torrents ...",
+                input_message_content=InputTextMessageContent(
+                    message_text="Search for Torrents from Inline!",
+                    parse_mode="Markdown"
+                ),
+                reply_markup=InlineKeyboardMarkup(DEFAULT_SEARCH_MARKUP)
+            )
+        )
 @Client.on_inline_query()
 async def answer(bot, query):
     """Show search results for given inline query"""
     
     if not await inline_users(query):
-        await query.answer(results=[],
+        await  search_ts.startswith("!yts"):
+        query = search_ts.split(" ", 1)[-1]
+        if (query == "") or (query == " "):
+            answers.append(
+                InlineQueryResultArticle(
+                    title="!yts [text]",
+                    description="Search For Torrent in YTS ...",
+                    input_message_content=InputTextMessageContent(
+                        message_text="`!yts [text]`\n\nSearch YTS Torrents from Inline!",
+                        parse_mode="Markdown"
+                    ),
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!yts ")]])
+                )
+            )
+        else:
+            torrentList = await SearchYTS(query)
+            if not torrentList:
+                answers.append(
+                    InlineQueryResultArticle(
+                        title="No Torrents Found!",
+                        description=f"Can't find YTS torrents for {query} !!",
+                        input_message_content=InputTextMessageContent(
+                            message_text=f"No YTS Torrents Found For `{query}`",
+                            parse_mode="Markdown"
+                        ),
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("Try Again", switch_inline_query_current_chat="!yts ")]])
+                    )
+                )
+        else:
+              query.answer(results=[],
                            cache_time=0,
                            switch_pm_text='okDa',
                            switch_pm_parameter="hehe")
