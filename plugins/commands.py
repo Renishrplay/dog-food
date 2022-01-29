@@ -19,8 +19,8 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 STICKERS = "CAACAgEAAxkBAAIF72H1PP0ULttWwMVOtAkRR09OtKOSAAKfAQACLjqoRzf7pc9dRxEXHgQ" 
 
-@Client.on_message(filters.command("start"no_args=True, only_pm=True)
-async def start_cmd(message):
+@Client.on_message(filters.command("start", no_args=True, only_pm=True)
+async def start_command(message):
     await message.reply_sticker(random.choice(STICKERS))
     await get_start_func(message)
 
