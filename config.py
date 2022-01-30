@@ -47,7 +47,7 @@ class Config(object):
 
     # To check dyno status
 
-    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "5045237191:AAHyn2yPXwwhZD_vsYD1liIQMVtlgGpne7s")
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "")
 
     # OPTIONAL - To set alternate BOT COMMANDS
 
