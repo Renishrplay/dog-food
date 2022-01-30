@@ -77,6 +77,7 @@ async def gen_link_batch(bot, message):
     if chat_id in FILE_STORE_CHANNEL:
         string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+        bot = await c.get_me()
         return await sts.edit(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}")
 
     msgs_list = []
