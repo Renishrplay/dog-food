@@ -13,10 +13,7 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
-
+from config import Config
 from PIL import Image
 from pyrogram import filters
 from scripts import Scripted
@@ -28,11 +25,13 @@ from functions.display_progress import progress_for_pyrogram
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+UPDATE_CHANNEL = 'rplaymovie'
+DOWNLOAD_LOCATION = './DOWNLOAD'
 
 @Clinton.on_message(filters.command(["convert"]))
 async def convert(bot, update):
 
-    update_channel = Config.UPDATE_CHANNEL
+    update_channel = UPDATE_CHANNEL
     if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
@@ -52,7 +51,7 @@ async def convert(bot, update):
 
     if update.reply_to_message is not None:
         description = Scripted.CUSTOM_CAPTION
-        download_location = Config.DOWNLOAD_LOCATION + "/"
+        download_location = DOWNLOAD_LOCATION + "/"
         c = await bot.send_message(
             chat_id=update.chat.id,
             text=Scripted.TRYING_TO_DOWNLOAD,
@@ -82,7 +81,7 @@ async def convert(bot, update):
             metadata = extractMetadata(createParser(the_real_download_location))
             if metadata.has("duration"):
                 duration = metadata.get('duration').seconds
-            thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+            thumb_image_path = DOWNLOAD_LOCATION + "/" + ".jpg"
             if not os.path.exists(thumb_image_path):
                 thumb_image_path = await take_screen_shot(
                     the_real_download_location,
