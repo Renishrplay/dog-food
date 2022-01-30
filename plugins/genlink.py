@@ -108,6 +108,7 @@ async def gen_link_batch(bot, message):
     outlist = []
 
     # file store without db channel
+    bot = await c.get_me()
     og_msg = 0
     tot = 0
     async for msg in msgs_list:
