@@ -1,5 +1,3 @@
-#https://github.com/PredatorHackerzZ/RENAMER-BOT
-
 import os
 import logging
 import pyrogram
@@ -13,10 +11,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 if bool(os.environ.get("WEBHOOK", False)):
 
-    from sample_config import Config
-else:
-    from config import Config
-
+from config import Config
 from PIL import Image
 from pyrogram import filters
 from scripts import Scripted
@@ -24,23 +19,21 @@ from database.database import *
 from pyrogram import Client as Clinton
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
+DOWNLOAD_LOCATION = './DOWNLOAD'
 @Clinton.on_message(filters.photo)
 async def save_photo(bot, update):
   
     if update.media_group_id is not None:
-        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(update.media_group_id) + "/"
+        download_location = DOWNLOAD_LOCATION + "/" + "/" + str(update.media_group_id) + "/"
         if not os.path.isdir(download_location):
             os.makedirs(download_location)
-        await sql.df_thumb(update.from_user.id, update.message_id)
         await bot.download_media(
               message=update,
               file_name=download_location
         )
     else:
         # received single photo
-        download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
-        await sql.df_thumb(update.from_user.id, update.message_id)
+        download_location = DOWNLOAD_LOCATION + "/" + ".jpg"
         await bot.download_media(
             message=update,
             file_name=download_location
@@ -54,7 +47,7 @@ async def save_photo(bot, update):
 
 @Clinton.on_message(filters.private & filters.command(["sthumbnail"]))
 async def show_thumb(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
+    if update.from_user.id:
         await bot.delete_messages(
               chat_id=update.chat.id,
               message_ids=update.message_id,
@@ -89,7 +82,7 @@ async def show_thumb(bot, update):
 
 @Clinton.on_message(filters.private & filters.command(["dthumbnail"]))
 async def delete_thumbnail(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
+    if update.from_user.id:
         await bot.delete_messages(
               chat_id=update.chat.id,
               message_ids=update.message_id,
@@ -97,7 +90,7 @@ async def delete_thumbnail(bot, update):
         )
         return
 
-    thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
+    thumb_image_path = DOWNLOAD_LOCATION + "/" + ".jpg"
     
     try:
         await sql.dthumb(update.from_user.id)
