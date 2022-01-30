@@ -311,3 +311,28 @@ Name - {}"""
       
     STATUS = """{}\nChat Member Status**\n\n```recently``` - {}\n```within_week``` - {}\n```within_month``` - {}\n```long_time_ago``` - {}\nDeleted Account - {}\nBot - {}\nUnCached - {}
 """
+    TRYING_TO_UPLOAD = "<i>Trying to Upload.....</i>"
+
+    CURRENT_THUMBNAIL = "<i>𝐘𝐨𝐮𝐫 𝐂𝐮𝐫𝐫𝐞𝐧𝐭 𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 🎭</i>"
+
+    THUMBNAIL_SAVED = "<i>𝐘𝐨𝐮𝐫 𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 𝐒𝐚𝐯𝐞𝐝 ✅</i>"
+
+    THUMBNAIL_DELETED = "<i>𝐘𝐨𝐮𝐫 𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 𝐃𝐞𝐥𝐞𝐭𝐞𝐝 ✅</i>"
+
+    NO_THUMBNAIL_FOUND = "<i>𝐍𝐨 𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 𝐅𝐨𝐮𝐧𝐝 (Konsi Goals Chahiye)😔</i>"
+
+    TRYING_TO_DOWNLOAD = "<i>Trying to Download....</i>"
+
+    UPLOAD_SUCCESS = "<u><i>Tʜᴀɴᴋs Fᴏʀ Usɪɴɢ ᴍᴇ❤ Join @TheTeleRoid</i></u>"
+
+    REPLY_TO_MEDIA = "<i>Reply to Media For Converting with Command /convert</i>"
+
+    UPLOAD_START = "<i>📤 Uploading Your File Please wait...</i>\n"
+
+    DOWNLOAD_START = "<i>📥 Downloading Your File Please wait...</i>\n"
+
+    JOIN_NOW_TEXT = "<code>First Join My Updates Channel to Use Me</code>"
+
+    REPLY_TO_FILE = "<i>Reply to that media with /rename new name .ext</i>"
+
+    CONTACT_MY_DEVELOPER = "<i>Something Wrong Contact in Support Group @TeleRoid14 😑</i>"
