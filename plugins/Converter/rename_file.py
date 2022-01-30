@@ -23,12 +23,12 @@ from functions.display_progress import progress_for_pyrogram
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
+UPDATE_CHANNEL = 'rplaymovie'
 
 @Clinton.on_message(filters.command(["rename"]))
 async def rename_doc(bot, update):
 
-    update_channel = Config.UPDATE_CHANNEL
+    update_channel = UPDATE_CHANNEL
     if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
@@ -37,7 +37,7 @@ async def rename_doc(bot, update):
                return
         except UserNotParticipant:
             await update.reply_text(text=Scripted.JOIN_NOW_TEXT,
-                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Config.UPDATE_CHANNEL}") ]
+                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{UPDATE_CHANNEL}") ]
                 ] 
               )
             )
