@@ -105,8 +105,6 @@ async def gen_link_batch(bot, message):
             c_msg += new_diff
 
     outlist = []
-
-    # file store without db channel
     og_msg = 0
     tot = 0
     async for msg in msgs_list:
