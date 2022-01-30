@@ -11,10 +11,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 if bool(os.environ.get("WEBHOOK", False)):
 
-    from sample_config import Config
-else:
-    from config import Config
-
+from config import Config
 from PIL import Image
 from pyrogram import filters
 from scripts import Scripted
