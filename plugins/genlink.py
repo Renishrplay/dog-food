@@ -105,6 +105,7 @@ async def gen_link_batch(bot, message):
             c_msg += new_diff
 
     outlist = []
+    gen_link_batch = "https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}"
     og_msg = 0
     tot = 0
     async for msg in bot.iter_messages(f_chat_id, list(range(f_msg_id, l_msg_id+1)))
