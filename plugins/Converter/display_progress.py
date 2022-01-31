@@ -16,7 +16,7 @@ if bool(os.environ.get("WEBHOOK", False)):
     ud_type,
     message,
     start
-"" "
+""" 
     now = time.time()
     diff = now - start
 
