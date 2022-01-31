@@ -9,8 +9,6 @@ logger = logging.getLogger(__name__)
 
 if bool(os.environ.get("WEBHOOK", False)):
 
-from scripts import Scripted
-
 
 async def progress_for_pyrogram(
     current,
