@@ -17,7 +17,7 @@ if bool(os.environ.get("WEBHOOK", False)):
     message,
     start
 """ 
-    now = time.time()
+    now = time.time
     diff = now - start
 
         if round(diff % 10.00) == 0 or current == total:
