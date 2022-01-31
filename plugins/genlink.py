@@ -105,10 +105,11 @@ async def gen_link_batch(bot, message):
             c_msg += new_diff
 
     outlist = []
-    gen_link_batch = "https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}"
+    
+    # file store without db channel
     og_msg = 0
     tot = 0
-    async for bot.iter_messages(f_chat_id, list(range(f_msg_id, l_msg_id+1)))
+    for msg in msgs_list:
         tot += 1
         if msg.empty or msg.service:
             continue
