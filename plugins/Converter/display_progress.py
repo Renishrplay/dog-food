@@ -10,13 +10,13 @@ logger = logging.getLogger(__name__)
 if bool(os.environ.get("WEBHOOK", False)):
 
 
-async def progress_for_pyrogram(
+  progress_for_pyrogram = """ 
     current,
     total,
     ud_type,
     message,
     start
-):
+"" "
     now = time.time()
     diff = now - start
     if round(diff % 10.00) == 0 or current == total:
