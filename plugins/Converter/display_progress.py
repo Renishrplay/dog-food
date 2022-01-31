@@ -19,7 +19,8 @@ if bool(os.environ.get("WEBHOOK", False)):
 "" "
     now = time.time()
     diff = now - start
-    if round(diff % 10.00) == 0 or current == total:
+
+async def round(diff % 10.00) == 0 or current == total:
         # if round(current / total * 100, 0) % 5 == 0:
         percentage = current * 100 / total
         speed = current / diff
