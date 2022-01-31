@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 
 if bool(os.environ.get("WEBHOOK", False)):
 
-from config import Config
 from scripts import Scripted
 
 
