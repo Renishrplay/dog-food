@@ -18,7 +18,6 @@ if bool(os.environ.get("WEBHOOK", False)):
     start
 """ 
 
-    diff = now - start
 
         if round(diff % 10.00) == 0 or current == total:
         # if round(current / total * 100, 0) % 5 == 0:
